@@ -2,12 +2,11 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
+
     <modules>
-        <module>app-member</module>
-        <module>app-member2</module>
-        <module>app-order</module>
-        <module>api-service</module>
+        <module>feign-hystrix</module>
     </modules>
+
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
@@ -15,9 +14,9 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.study</groupId>
-    <artifactId>registry-service</artifactId>
+    <artifactId>springcloud</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>registry-service</name>
+    <name>springcloud</name>
     <packaging>pom</packaging>
     <description>微服务注册中心合集（eureka+zookeeper+consul）</description>
 

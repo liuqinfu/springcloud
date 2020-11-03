@@ -1,0 +1,39 @@
+server:
+  port: 8081
+
+#使用feign客户端访问的时候 默认1s超时   修改为5s
+ribbon:
+  #建立连接最长时间
+  ReadTimeout: 3000
+  #建立连接后，获取资源所用的时间
+  ConnectTimeout: 3000
+
+#启动hystrix
+feign:
+  hystrix:
+    enabled: true
+
+#关闭hystrix超时时间（开发环境)
+hystrix:
+  command:
+    default:
+      execution:
+        timeout:
+          enabled: false
+  threadpool:
+    default:
+      #默认阈值为10个，超过阈值后熔断
+      coreSize: 20
+spring:
+  application:
+    name: app-order
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
+      discovery:
+        instance-id: ${spring.application.name}:${spring.cloud.client.ip-address}:${server.port}
+        health-check-path: /actuator/health
+        health-check-interval: 10s
+#    zookeeper:
+#      connect-string: localhost:2181
