@@ -19,6 +19,7 @@
 
     <artifactId>feign-hystrix</artifactId>
     <packaging>pom</packaging>
+    <description>openfeign与hystrix</description>
 
 
     <properties>

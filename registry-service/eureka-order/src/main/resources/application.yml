@@ -1,0 +1,11 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: eureka-order
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:7070/eureka,http://127.0.0.1:7071/eureka,http://127.0.0.1:7072/eureka
+    register-with-eureka: true
+    fetch-registry: true
