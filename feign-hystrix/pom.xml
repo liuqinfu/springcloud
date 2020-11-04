@@ -19,7 +19,7 @@
 
     <artifactId>feign-hystrix</artifactId>
     <packaging>pom</packaging>
-    <description>openfeign与hystrix</description>
+    <description>openfeign与hystrix   注册中心为：consul,可选zookeeper；需自行搭建consul或zookeeper</description>
 
 
     <properties>
