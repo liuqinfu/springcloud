@@ -1,0 +1,24 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: app-config
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
+      discovery:
+        instance-id: ${spring.application.name}:${spring.cloud.client.ip-address}:${server.port}
+        health-check-path: /actuator/health
+        health-check-interval: 10s
+    config:
+      server:
+        git:
+          uri: https://gitee.com/the-imperial-kitchen_admin/configserver.git
+          search-paths:
+            - configs
+          username: lqf1373900785@foxmail.com
+          password: 60704991Lqf
+      label: master
+      profile: dev
