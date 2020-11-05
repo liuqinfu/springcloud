@@ -1,6 +1,7 @@
 package com.study.order.api.service;
 
 import com.study.apimember.service.MemberService;
+import com.study.order.api.fallback.MemberFallBack;
 import org.springframework.cloud.openfeign.FeignClient;
 
 /**
@@ -8,6 +9,6 @@ import org.springframework.cloud.openfeign.FeignClient;
  * @since 2020/11/3 16:34
  */
 
-@FeignClient(name = "app-member"/*,fallback = FailResult.class*/)
+@FeignClient(name = "app-member",fallback = MemberFallBack.class)
 public interface MemberServiceImpl extends MemberService {
 }
