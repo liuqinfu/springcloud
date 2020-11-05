@@ -24,10 +24,25 @@ public class OrderController implements OrderService {
     @Autowired
     private MemberService memberService;
 
-    //该接口使用hystrix，且指定了降级方法
+    //该接口使用hystrix，且指定了降级方法   该注解方式会将整个方法加入到线程中，不推荐使用，正常应该讲远程调用代码块放入线程中
     @HystrixCommand(fallbackMethod = "defaultReturn")
     @GetMapping("order/{userId}")
     public Map getOrder(@PathVariable String userId){
+        User user = memberService.getUser(userId);
+        Map order = new HashMap();
+        order.put("orderId",110);
+        order.put("item","iPhone12ProMax");
+        order.put("buyer",user);
+        return order;
+    }
+
+    /**
+     * 采用类的方式进行服务降级 (推荐使用)
+     * @param userId
+     * @return
+     */
+    @GetMapping("order/v2/{userId}")
+    public Map getOrderV2(@PathVariable String userId){
         User user = memberService.getUser(userId);
         Map order = new HashMap();
         order.put("orderId",110);
