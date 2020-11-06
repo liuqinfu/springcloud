@@ -17,8 +17,8 @@ zuul:
     api-member:
       serviceId: zuul-zuulmember
       path: /member/**
-      strip-prefix: false
+      strip-prefix: true
     api-order:
       serviceId: zuul-zuulorder
       path: /order/**
-      strip-prefix: false
+      strip-prefix: true

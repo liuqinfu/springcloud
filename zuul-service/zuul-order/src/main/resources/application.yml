@@ -11,3 +11,5 @@ spring:
         health-check-interval: 10s
         instance-id: ${spring.application.name}:${spring.cloud.client.ip-address}:${server.port}
         health-check-path: /actuator/health
+swagger:
+  base-package: com.study.zuulorder.api

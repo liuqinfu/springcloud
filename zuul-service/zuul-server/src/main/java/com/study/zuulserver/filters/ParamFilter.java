@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
  * @author 我走路带风
  * @since 2020/11/6 10:05
  */
-@Component
+//@Component
 public class ParamFilter extends ZuulFilter {
 
     @Override
