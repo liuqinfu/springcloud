@@ -1,0 +1,23 @@
+server:
+  port: 80
+spring:
+  application:
+    name: zuul-zuulserver
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
+      discovery:
+        health-check-interval: 10s
+        instance-id: ${spring.application.name}:${spring.cloud.client.ip-address}:${server.port}
+        health-check-path: /actuator/health
+    config:
+      discovery:
+        service-id: config-central
+        enabled: true
+        profile: dev
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

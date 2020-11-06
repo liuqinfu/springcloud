@@ -8,6 +8,7 @@
         <module>registry-service</module>
         <module>config-service</module>
         <module>zuul-service</module>
+        <module>config-central</module>
     </modules>
 
     <parent>
