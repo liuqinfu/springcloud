@@ -1,0 +1,9 @@
+server:
+  port: 8081
+dubbo:
+  registry:
+    address: zookeeper://127.0.0.1:2181
+  application:
+    name: springboot-dubbo-order
+  consumer:
+    timeout: 5000

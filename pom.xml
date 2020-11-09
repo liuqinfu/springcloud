@@ -10,6 +10,7 @@
         <module>zuul-service</module>
         <module>config-central</module>
         <module>dubbo-service</module>
+        <module>springboot-dubbo</module>
     </modules>
 
     <parent>
