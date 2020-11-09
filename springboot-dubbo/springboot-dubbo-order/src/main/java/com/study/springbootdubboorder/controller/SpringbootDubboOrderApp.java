@@ -1,17 +1,20 @@
-package com.study.sprongbootdubbomember;
+package com.study.springbootdubboorder.controller;
 
 import com.alibaba.dubbo.config.spring.context.annotation.EnableDubbo;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
- * @author 我走路带风
- * @since 2020/11/9 17:03
+ * @author： leon
+ * @date： 2020/11/9 23:16
+ * @description： TODO
+ * @modifiedBy：
+ * @version: 1.0
  */
 @SpringBootApplication
 @EnableDubbo
-public class SpringbootDubboMemberApp {
+public class SpringbootDubboOrderApp {
     public static void main(String[] args) {
-        SpringApplication.run(SpringbootDubboMemberApp.class);
+        SpringApplication.run(SpringbootDubboOrderApp.class);
     }
 }
