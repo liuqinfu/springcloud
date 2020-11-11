@@ -13,6 +13,7 @@
         <module>springboot-dubbo</module>
         <module>activemq-service</module>
         <module>springboot-activemq</module>
+        <module>springcloud-lcn</module>
     </modules>
 
     <parent>
