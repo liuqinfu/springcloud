@@ -1,6 +1,10 @@
-package
+package com.study.springcloudlcnorder.controller;
 
 import com.study.springcloudlcnorder.entity.Order;
+import com.study.springcloudlcnorder.service.OrderService;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
 

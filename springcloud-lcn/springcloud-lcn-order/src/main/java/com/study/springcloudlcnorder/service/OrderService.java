@@ -1,4 +1,4 @@
-package
+package com.study.springcloudlcnorder.service;
 
 import com.study.springcloudlcnorder.entity.Order;
 
