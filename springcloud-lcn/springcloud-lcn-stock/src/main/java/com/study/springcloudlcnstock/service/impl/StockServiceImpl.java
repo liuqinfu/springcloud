@@ -1,9 +1,11 @@
 package com.study.springcloudlcnstock.service.impl;
 
+import com.codingapi.tx.annotation.TxTransaction;
 import com.study.springcloudlcnstock.dao.StockDao;
 import com.study.springcloudlcnstock.entity.Stock;
 import com.study.springcloudlcnstock.service.StockService;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -60,6 +62,8 @@ public class StockServiceImpl implements StockService {
      * @param stock 实例对象
      * @return 实例对象
      */
+    @TxTransaction
+    @Transactional
     @Override
     public Stock update(Stock stock) {
         this.stockDao.update(stock);

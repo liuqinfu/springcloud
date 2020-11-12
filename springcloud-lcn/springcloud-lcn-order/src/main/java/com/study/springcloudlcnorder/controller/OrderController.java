@@ -34,4 +34,15 @@ public class OrderController {
         return this.orderService.queryById(id);
     }
 
+    @GetMapping("order/add")
+    public String addOrder(int i){
+        Order order = new Order();
+        order.setGoodId(1);
+        order.setMount(9.9);
+        order.setStatus(0);
+        order.setName("分布式事务");
+        this.orderService.insert(order,i);
+        return "success";
+    }
+
 }

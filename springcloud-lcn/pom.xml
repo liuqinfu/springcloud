@@ -16,6 +16,7 @@
         <module>springcloud-lcn-order</module>
         <module>springcloud-lcn-stock</module>
         <module>springcloud-lcn-api</module>
+        <module>springcloud-lcn-eureka</module>
     </modules>
 
     <properties>

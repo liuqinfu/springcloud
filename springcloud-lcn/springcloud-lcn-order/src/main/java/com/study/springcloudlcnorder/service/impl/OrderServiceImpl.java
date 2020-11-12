@@ -1,9 +1,13 @@
 package com.study.springcloudlcnorder.service.impl;
 
+import com.codingapi.tx.annotation.TxTransaction;
+import com.study.springcloudlcnapistock.service.StockService;
 import com.study.springcloudlcnorder.dao.OrderDao;
 import com.study.springcloudlcnorder.entity.Order;
 import com.study.springcloudlcnorder.service.OrderService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -18,6 +22,9 @@ import java.util.List;
 public class OrderServiceImpl implements OrderService {
     @Resource
     private OrderDao orderDao;
+
+    @Autowired
+    private StockService stockService;
 
     /**
      * 通过ID查询单条数据
@@ -48,9 +55,14 @@ public class OrderServiceImpl implements OrderService {
      * @param order 实例对象
      * @return 实例对象
      */
+    @TxTransaction(isStart = true)
+    @Transactional
     @Override
-    public Order insert(Order order) {
+    public Order insert(Order order,int i) {
         this.orderDao.insert(order);
+        boolean b = stockService.deleteStock();
+        if (b) System.out.println("库存扣除成功");
+        int a = 1/i;
         return order;
     }
 
