@@ -14,6 +14,8 @@
         <module>activemq-service</module>
         <module>springboot-activemq</module>
         <module>springcloud-lcn</module>
+        <module>rabbitmq-service</module>
+        <module>springboot-rabbitmq</module>
     </modules>
 
     <parent>
