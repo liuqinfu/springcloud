@@ -5,5 +5,16 @@ spring:
     username: admin
     password: admin
     virtual-host: admin
+    listener:
+      simple:
+        retry:
+          # 开启失败自动补偿
+          enabled: true
+          # 最大重试次数
+          max-attempts: 3
+          # 重试间隔时间  毫秒
+          initial-interval: 5000
+        # 消息签收机制   手动签收
+        acknowledge-mode: manual
 server:
   port: 8081
