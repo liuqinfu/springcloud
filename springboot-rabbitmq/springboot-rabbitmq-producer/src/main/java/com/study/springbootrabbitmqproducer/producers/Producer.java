@@ -1,5 +1,6 @@
 package com.study.springbootrabbitmqproducer.producers;
 
+import com.alibaba.fastjson.JSONObject;
 import org.springframework.amqp.core.AmqpTemplate;
 import org.springframework.amqp.core.Message;
 import org.springframework.amqp.core.MessageBuilder;
@@ -7,7 +8,6 @@ import org.springframework.amqp.core.MessageProperties;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.util.Date;
 import java.util.UUID;
 
 /**
@@ -25,8 +25,10 @@ public class Producer {
 
     public void send(String queueName){
         System.out.println("queue_name:"+queueName);
-        String msg = "message--"+new Date();
-        Message message = MessageBuilder.withBody(msg.getBytes())
+        JSONObject jsonObject = new JSONObject();
+//        jsonObject.put("timestamp",1);
+        jsonObject.put("timestamp",0);
+        Message message = MessageBuilder.withBody(jsonObject.toJSONString().getBytes())
                 .setContentType(MessageProperties.CONTENT_TYPE_JSON)
                 .setContentEncoding("utf-8")
                 .setMessageId(UUID.randomUUID()+"")
