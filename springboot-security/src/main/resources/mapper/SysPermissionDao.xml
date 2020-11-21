@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.study.springbootsecurity.dao.SysPermissionDao">
+
+    <resultMap type="com.study.springbootsecurity.entity.SysPermission" id="SysPermissionMap">
+        <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="permname" column="permName" jdbcType="VARCHAR"/>
+        <result property="permtag" column="permTag" jdbcType="VARCHAR"/>
+        <result property="url" column="url" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <!--查询单个-->
+    <select id="queryById" resultMap="SysPermissionMap">
+        select id,
+               permName,
+               permTag,
+               url
+        from rbac.sys_permission
+        where id = #{id}
+    </select>
+
+    <!--查询指定行数据-->
+    <select id="queryAllByLimit" resultMap="SysPermissionMap">
+        select id,
+               permName,
+               permTag,
+               url
+        from rbac.sys_permission limit #{offset}, #{limit}
+    </select>
+
+    <!--通过实体作为筛选条件查询-->
+    <select id="queryAll" resultMap="SysPermissionMap">
+        select
+        id, permName, permTag, url
+        from rbac.sys_permission
+        <where>
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="permname != null and permname != ''">
+                and permName = #{permname}
+            </if>
+            <if test="permtag != null and permtag != ''">
+                and permTag = #{permtag}
+            </if>
+            <if test="url != null and url != ''">
+                and url = #{url}
+            </if>
+        </where>
+    </select>
+
+    <!--新增所有列-->
+    <insert id="insert" keyProperty="id" useGeneratedKeys="true">
+        insert into rbac.sys_permission(permName, permTag, url)
+        values (#{permname}, #{permtag}, #{url})
+    </insert>
+
+    <insert id="insertBatch" keyProperty="id" useGeneratedKeys="true">
+        insert into rbac.sys_permission(permName, permTag, url)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.permname}, #{entity.permtag}, #{entity.url})
+        </foreach>
+    </insert>
+
+    <insert id="insertOrUpdateBatch" keyProperty="id" useGeneratedKeys="true">
+        insert into rbac.sys_permission(permName, permTag, url)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.permname}, #{entity.permtag}, #{entity.url})
+        </foreach>
+        on duplicate key update
+        permName = values(permName) , permTag = values(permTag) , url = values(url)
+    </insert>
+
+    <!--通过主键修改数据-->
+    <update id="update">
+        update rbac.sys_permission
+        <set>
+            <if test="permname != null and permname != ''">
+                permName = #{permname},
+            </if>
+            <if test="permtag != null and permtag != ''">
+                permTag = #{permtag},
+            </if>
+            <if test="url != null and url != ''">
+                url = #{url},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="deleteById">
+        delete
+        from rbac.sys_permission
+        where id = #{id}
+    </delete>
+
+</mapper>

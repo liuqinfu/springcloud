@@ -10,3 +10,12 @@ spring:
       - classpath:/templates/
   mvc:
     static-path-pattern: /static/**
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/rbac
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+mybatis:
+  mapper-locations: classpath:/mapper/**.xml
+  type-aliases-package: com.study.springbootsecurity.entity

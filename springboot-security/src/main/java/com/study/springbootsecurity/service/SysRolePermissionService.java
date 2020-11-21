@@ -1,0 +1,34 @@
+package com.study.springbootsecurity.service;
+
+import com.study.springbootsecurity.entity.SysRolePermission;
+
+import java.util.List;
+
+/**
+ * (SysRolePermission)表服务接口
+ *
+ * @author makejava
+ * @since 2020-11-21 15:59:53
+ */
+public interface SysRolePermissionService {
+
+
+    /**
+     * 查询多条数据
+     *
+     * @param offset 查询起始位置
+     * @param limit  查询条数
+     * @return 对象列表
+     */
+    List<SysRolePermission> queryAllByLimit(int offset, int limit);
+
+    /**
+     * 新增数据
+     *
+     * @param sysRolePermission 实例对象
+     * @return 实例对象
+     */
+    SysRolePermission insert(SysRolePermission sysRolePermission);
+
+
+}
