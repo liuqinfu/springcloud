@@ -1,0 +1,16 @@
+server:
+  port: 8082
+spring:
+  application:
+    name: zipkin-order
+  zipkin:
+    base-url: http://172.16.159.2:8080
+  sleuth:
+    sampler:
+      probability: 1.0 #采样收集
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:8761/eureka
+    register-with-eureka: true
+    fetch-registry: true

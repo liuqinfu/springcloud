@@ -79,7 +79,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .csrf().disable();*/
 
-        //冬天设置权限
+        //动态设置权限
         ExpressionUrlAuthorizationConfigurer<HttpSecurity>.ExpressionInterceptUrlRegistry authorizeRequests = http.authorizeRequests();
         List<SysPermission> sysPermissions = sysPermissionService.queryAll(null);
         sysPermissions.stream().forEach(permission->{

@@ -1,0 +1,16 @@
+spring:
+  datasource:
+    select:
+      jdbc-url: jdbc:mysql://172.16.159.5:8066/test
+      driver-class-name: com.mysql.jdbc.Driver
+      username: user
+      password: user
+    update:
+      jdbc-url: jdbc:mysql://172.16.159.5:8066/test
+      driver-class-name: com.mysql.jdbc.Driver
+      username: root
+      password: 123456
+    type: com.alibaba.druid.pool.DruidDataSource
+mybatis:
+  mapper-locations: classpath:/mapper/*.xml
+  type-aliases-package: com.study.springbootmycat.entity
